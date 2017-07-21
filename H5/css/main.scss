@@ -1,0 +1,105 @@
+@charset "utf-8";
+$ppr: 750px/16/1rem;
+
+/*去浮动*/
+@mixin clear{
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+/*重置样式*/
+*,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+textarea,
+p,
+th,
+td,
+input,
+select,
+textarea,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    color: #333;
+}
+
+body {
+    font-family: "微软雅黑", Arial;
+    background-color: #fff;
+}
+
+li{
+    list-style: none;
+}
+
+.title{
+	text-align: center;
+	font-size: 28px/$ppr;
+	margin: 20px/$ppr 0;
+}
+/* 图片列表 */
+.img-container{
+	display: flex;
+	flex-wrap: wrap;
+	width: 720px/$ppr;
+	margin: 0 auto;
+	.img-item{
+		width: 200px/$ppr;
+		height: 200px/$ppr;
+		margin: 20px/$ppr;
+		/* 背景图设置为居中，尺寸为cover，不重复 */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;		
+	}
+}
+
+/* 灯箱图片查看插件 */
+.photo-swipe{
+	display: flex;
+	flex-wrap: wrap;
+	width: 720px/$ppr;
+	margin: 0 auto;	
+	.img-item{
+		display: block;
+		width: 200px/$ppr;
+		height: 200px/$ppr;
+		margin: 20px/$ppr;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;			
+	}
+}
+

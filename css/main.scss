@@ -1,0 +1,120 @@
+@charset "utf-8";
+/*去浮动*/
+@mixin clear{
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	clear: both;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+/*重置样式*/
+*,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+textarea,
+p,
+th,
+td,
+input,
+select,
+textarea,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    color: #333;
+}
+
+body {
+    font-family: "微软雅黑", Arial;
+    background-color: #fff;
+}
+
+li{
+    list-style: none;
+}
+
+.title{
+	text-align: center;
+	font-size: 28px;
+	margin: 20px 0;
+}
+/* 图片列表 */
+.img-container{
+	display: flex;
+	flex-wrap: wrap;
+	width: 1200px;
+	margin: 0 auto;
+	.img-item{
+		width: 200px;
+		height: 200px;
+		margin: 20px;
+		/* 背景图设置为居中，尺寸为cover，不重复 */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;		
+	}
+}
+
+/* 灯箱图片查看插件 */
+.light-box,.fancy-box{
+	display: flex;
+	flex-wrap: wrap;
+	width: 1200px;
+	margin: 0 auto;	
+	.img-item{
+		display: block;
+		width: 200px;
+		height: 200px;
+		margin: 20px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;			
+	}
+}
+
+.view-container{
+	.pictures{
+		display: flex;
+		flex-wrap: wrap;
+		width: 1200px;
+		margin: 0 auto;		
+		.img-item{
+			display: block;
+			width: 200px;
+			height: 200px;
+			margin: 20px;
+	        background-size: cover;
+	        background-position: center;
+	        background-repeat: no-repeat;			
+		}			
+	}
+}

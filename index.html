@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片展示demo</title>
+	<link rel="stylesheet" href="css/main.css">
+	<!-- 灯箱效果需引入的css -->
+	<link rel="stylesheet" href="css/lightbox.min.css">
+
+	<!-- fancybox效果需引入的css -->
+	<link rel="stylesheet" href="css/jquery.fancybox.css">
+
+	
+</head>
+<body>
+	<!-- 图片容器 -->
+	<h1 class="title">普通图片展示</h1>
+	<div class="img-container">
+		<div class="img-item" style="background-image:url('http://p2.image.hiapk.com/uploads/allimg/150504/7730-1505041H005-50.jpg'); ">
+		</div>					
+	</div>
+	<!-- 图片容器end -->
+
+	
+	<h1 class="title">图片展示，带灯箱预览效果</h1>
+	<!-- 灯箱预览容器 -->
+    <div class="light-box">
+		<a class="img-item" href="http://p2.image.hiapk.com/uploads/allimg/150504/7730-1505041H005-50.jpg" data-lightbox="example-set" style="background-image:url('http://p2.image.hiapk.com/uploads/allimg/150504/7730-1505041H005-50.jpg'); ">
+		</a> 
+    </div>
+    <!-- 灯箱预览容器end -->
+
+	<h1 class="title">图片展示，带fancyBox预览效果</h1>
+    <!-- fancybox预览 -->
+
+    <div class="fancy-box">
+    	<a class="img-item" href="http://p2.image.hiapk.com/uploads/allimg/150504/7730-1505041H005-50.jpg" style="background-image:url('http://p2.image.hiapk.com/uploads/allimg/150504/7730-1505041H005-50.jpg'); " data-type="image" data-fancybox-group="gallery">
+    	</a>
+    	<a class="img-item" href="http://p2.image.hiapk.com/uploads/allimg/150504/7730-1505041H005-50.jpg" style="background-image:url('http://p2.image.hiapk.com/uploads/allimg/150504/7730-1505041H005-50.jpg'); " data-type="image" data-fancybox-group="gallery">
+    	</a>
+    	<a class="img-item" href="http://p2.image.hiapk.com/uploads/allimg/150504/7730-1505041H005-50.jpg" style="background-image:url('http://p2.image.hiapk.com/uploads/allimg/150504/7730-1505041H005-50.jpg'); " data-type="image" data-fancybox-group="gallery">
+    	</a>    	
+
+    </div>
+	<!-- fancybox预览end -->
+
+	<script src="js/jquery-2.1.4.min.js"></script>	
+	<!-- 灯箱效果需引入 -->
+	<script src="js/lightbox-plus-jquery.min.js"></script>	
+	<!-- fancybox效果需引入 -->
+	<script src="js/jquery.fancybox.pack.js"></script>			
+	<script src="js/data.js"></script>	
+	<script>
+		$(function(){
+			//第一种最普通的展示方式
+			/* mark: 拼接图片html的方法，为了做不同尺寸的适应，采用背景图的方法
+			 * author: LiuWei
+			 * time: 2017/7/6
+			*/
+			function photoHtmlBg(photoArray){
+				var photoList = '';
+				for(var i=0;i<photoArray.length;i++){
+					photoList += '<div class="img-item" style="background-image:url(\''+ photoArray[i] +'\')">'+
+							     '</div>';
+				}
+				return photoList;
+			};
+			console.log(showData[0].photo);
+
+			$('.img-container').html(photoHtmlBg(showData[0].photo));
+
+
+			//第二种灯箱打开的方式
+			function pohtoHtmlLb(photoArray){
+				var photoList = '';
+				for(var i=0;i<photoArray.length;i++){
+					photoList += '<a href="'+ photoArray[i] +'"'+' class="img-item" style="background-image:url(\''+ photoArray[i] +'\')" data-lightbox="example-set">'+
+							     '<a>';
+				}
+				return photoList;				
+			}
+
+			$('.light-box').html(pohtoHtmlLb(showData[0].photo));
+
+
+			//第三种预览方式
+			function pohtoHtmlFb(photoArray){
+				var photoList = '';
+				for(var i=0;i<photoArray.length;i++){
+					photoList += '<a href="'+ photoArray[i] +'"'+' class="img-item" style="background-image:url(\''+ photoArray[i] +'\')" data-type="image" data-fancybox-group="gallery">'+
+							     '<a>';
+				}
+				return photoList;				
+			}	
+			$('.fancy-box').html(pohtoHtmlFb(showData[0].photo));		
+			$('.fancy-box .img-item').fancybox();
+
+		})
+
+
+	</script>
+</body>
+</html>
